@@ -47,8 +47,8 @@ Button btnadd;
         rollno = (TextInputEditText)view.findViewById(R.id.rollno);
 
       //  admno.setText(AdmNum);
-        spinner_sem = (Spinner)view.findViewById(R.id.spinner_sem);
-        spinner_stream = (Spinner)view.findViewById(R.id.spinner_stream);
+        spinner_sem = (Spinner)view.findViewById(R.id.spinner_sem_new);
+        spinner_stream = (Spinner)view.findViewById(R.id.spinner_stream_new);
         List<String> stream_spin = new ArrayList<String>();
         stream_spin.add("Bsc Computer Science");
         stream_spin.add("B.M.M");

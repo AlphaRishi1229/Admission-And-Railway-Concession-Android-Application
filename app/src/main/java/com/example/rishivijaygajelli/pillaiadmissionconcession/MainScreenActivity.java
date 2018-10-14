@@ -16,19 +16,24 @@ public class MainScreenActivity extends AppCompatActivity {
 Button btn1, btn2;
 Switch switch1;
 CoordinatorLayout coordinatorLayout;
+RelativeLayout rel1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+
+
         btn1 = (Button)findViewById(R.id.btn1);
         btn2 = (Button)findViewById(R.id.btn2);
         switch1 = (Switch)findViewById(R.id.switch1);
         coordinatorLayout = (CoordinatorLayout)findViewById(R.id.coordinatorLayout);
+        rel1 =(RelativeLayout)findViewById(R.id.rel1);
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == true)
                 {
+                    rel1.setBackground(getResources().getDrawable(R.mipmap.pillai));
                     Snackbar snackbar = Snackbar
                             .make(coordinatorLayout, "Admin Mode Enabled", Snackbar.LENGTH_LONG)
                             .setAction("UNDO", new View.OnClickListener() {
@@ -39,7 +44,12 @@ CoordinatorLayout coordinatorLayout;
                                     snackbar1.show();
                                 }
                             });
+
                     snackbar.show();
+                }
+                else if(!isChecked)
+                {
+                    rel1.setBackgroundColor(getResources().getColor(R.color.grey));
                 }
             }
         });
@@ -75,6 +85,10 @@ CoordinatorLayout coordinatorLayout;
                 }
             }
         });
+    }
+    public void setActivityBackgroundColor(int color) {
+        View view = this.getWindow().getDecorView();
+        view.setBackgroundColor(color);
     }
 }
 
