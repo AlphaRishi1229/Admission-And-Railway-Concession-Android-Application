@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Pillai Admission &amp; Concession</string>
+    <string name="spinner_title">Last Pass Type (I or II)</string>
+    <string name="spinner_period">Monthly / Quaterly</string>
+
+    <string-array name="CS_array">
+        <item>CS-First Semester</item>
+        <item>CS-Second Semester</item>
+        <item>CS-Third Semester</item>
+        <item>CS-Fourth Semester</item>
+        <item>CS-Fifth Semester</item>
+        <item>CS-Sixth Semester</item>
+    </string-array>
+
+    <string-array name="BMM_array">
+        <item>BMM-First Semester</item>
+        <item>BMM-Second Semester</item>
+        <item>BMM-Third Semester</item>
+        <item>BMM-Fourth Semester</item>
+        <item>BMM-Fifth Semester</item>
+        <item>BMM-Sixth Semester</item>
+    </string-array>
+
+    <string-array name="BMS_array">
+        <item>BMS-First Semester</item>
+        <item>BMS-Second Semester</item>
+        <item>BMS-Third Semester</item>
+        <item>BMS-Fourth Semester</item>
+        <item>BMS-Fifth Semester</item>
+        <item>BMS-Sixth Semester</item>
+    </string-array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

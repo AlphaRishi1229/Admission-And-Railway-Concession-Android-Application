@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "548474578992",
+    "firebase_url": "https://pillaiadmissionconcession.firebaseio.com",
+    "project_id": "pillaiadmissionconcession",
+    "storage_bucket": "pillaiadmissionconcession.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548474578992:android:8af3583932b3e106",
+        "android_client_info": {
+          "package_name": "com.example.rishivijaygajelli.pillaiadmissionconcession"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548474578992-74j18otd859vksbkcgnl1s348j9ifnob.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rishivijaygajelli.pillaiadmissionconcession",
+            "certificate_hash": "3d5efce3cff682a3d7ee118f03ab22f1534d7235"
+          }
+        },
+        {
+          "client_id": "548474578992-4ft7q1ad1snr0o2an569ehu8pnbbhoei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rishivijaygajelli.pillaiadmissionconcession",
+            "certificate_hash": "eed7641a22e00360e5f3a556187f94ea5925b5f2"
+          }
+        },
+        {
+          "client_id": "548474578992-1vpqqt5ddvgm03n1cm0cuefoac5an1ie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAV98JUl4TmpAwOrrQAL8zOq8g3u_RSlIw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548474578992-1vpqqt5ddvgm03n1cm0cuefoac5an1ie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
