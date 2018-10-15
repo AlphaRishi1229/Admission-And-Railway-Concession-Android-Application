@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_dark_background"
+        card_view:cardBackgroundColor="@color/grey"
+        card_view:cardCornerRadius="10dp"
+        card_view:cardElevation="9dp"
+        card_view:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rv_stu_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="New Student ID"
+                android:textColor="@color/red"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/rv_new_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv_stu_id"
+                android:layout_centerHorizontal="true"
+                android:text="Student Name"
+                android:textColor="@color/darkOrange"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/rv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/rv_caste"
+                android:layout_below="@+id/rv_new_name"
+                android:text="Phone Number"
+                android:textColor="@color/red"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/rv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/rv_dob"
+                android:layout_below="@+id/rv_phone"
+                android:text="Email ID"
+                android:textColor="@color/fui_bgEmail"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/rv_dob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/rv_caste"
+                android:layout_marginEnd="11dp"
+                android:text="DOB"
+                android:textColor="@color/darkOrange"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/rv_caste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/rv_email"
+                android:layout_marginStart="14dp"
+                android:text="Caste"
+                android:textColor="@color/darkOrange"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/rv_tenth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="58dp"
+                android:layout_toStartOf="@+id/rv_dob"
+                android:text="10th Marks"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/rv_twelth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/rv_tenth"
+                android:layout_marginBottom="16dp"
+                android:text="12th Marks"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/rv_applied_stream"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/rv_phone"
+                android:layout_marginBottom="127dp"
+                android:text="Applied Stream"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/rv_stream_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/rv_applied_stream"
+                android:layout_marginTop="-127dp"
+                android:text="Applied Stream Year"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <View
+                android:id="@+id/divider6"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/rv_new_name"
+                android:background="@android:color/holo_orange_light" />
+
+            <View
+                android:id="@+id/divider7"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/rv_email"
+                android:background="@android:color/holo_orange_light" />
+
+            <View
+                android:id="@+id/divider8"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/holo_orange_light" />
+
+            <View
+                android:id="@+id/divider9"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/rv_stream_year"
+                android:background="@android:color/holo_orange_light" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/rv_phone"
+                android:layout_alignTop="@+id/rv_tenth"
+                android:text="10th Percentage:"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/rv_twelth"
+                android:layout_alignStart="@+id/rv_phone"
+                android:text="12th Percentage:"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

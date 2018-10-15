@@ -25,14 +25,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/rv_roll"
+                android:layout_alignStart="@+id/rv_phone"
                 android:layout_marginTop="16dp"
                 android:text="Pass Code"
                 android:textColor="@color/red"
                 android:textSize="22sp" />
 
             <TextView
-                android:id="@+id/rv_adm"
+                android:id="@+id/rv_stu_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -43,7 +43,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/rv_roll"
+                android:id="@+id/rv_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"

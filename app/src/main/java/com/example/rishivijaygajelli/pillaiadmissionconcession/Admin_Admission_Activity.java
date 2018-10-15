@@ -1,9 +1,10 @@
 package com.example.rishivijaygajelli.pillaiadmissionconcession;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -18,16 +19,22 @@ public class Admin_Admission_Activity extends AppCompatActivity {
     Connection connect;
     String ConnectionResult = "";
     Boolean isSuccess = false;
+    SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_admission);
 
-        etusername = (TextInputEditText)findViewById(R.id.etusername);
-        etpassword = (TextInputEditText)findViewById(R.id.etpassword);
-        etphone = (TextInputEditText)findViewById(R.id.etphone);
+        etusername = findViewById(R.id.etusername);
+        etpassword = findViewById(R.id.etpassword);
+        etphone = findViewById(R.id.etphone);
 
-        btnlogin = (Button)findViewById(R.id.btnloginconcession);
+        sp = getSharedPreferences("adm_login",MODE_PRIVATE);
+        if(sp.getBoolean("logged",false)){
+            goToMainActivity();
+        }
+
+        btnlogin = findViewById(R.id.btnloginconcession);
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +56,9 @@ public class Admin_Admission_Activity extends AppCompatActivity {
 
                            if(password.equals(dbpwd) && phone.equals(dbphone))
                             {
+                                goToMainActivity();
+                                sp.edit().putBoolean("logged",true).apply();
+
                                 Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
                                 Intent myintent = new Intent(Admin_Admission_Activity.this, AdminAuthActivity.class);
                                 Bundle bundle = new Bundle();
@@ -75,7 +85,7 @@ public class Admin_Admission_Activity extends AppCompatActivity {
             }
         });
 
-        btnsignup = (Button)findViewById(R.id.btnsignup);
+        btnsignup = findViewById(R.id.btnsignup);
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,5 +93,9 @@ public class Admin_Admission_Activity extends AppCompatActivity {
                 startActivity(signup);
             }
         });
+    }
+    public void goToMainActivity(){
+        Intent i = new Intent(this,AdminAdmissionAddActivity.class);
+        startActivity(i);
     }
 }

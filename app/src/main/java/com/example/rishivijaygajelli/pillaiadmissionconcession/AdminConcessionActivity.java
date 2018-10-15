@@ -2,9 +2,9 @@ package com.example.rishivijaygajelli.pillaiadmissionconcession;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -28,16 +28,16 @@ public class AdminConcessionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_concession);
 
-        etadminid = (TextInputEditText)findViewById(R.id.etadminid);
-        etpass = (TextInputEditText)findViewById(R.id.etpass);
-        etnum = (TextInputEditText)findViewById(R.id.etnum);
+        etadminid = findViewById(R.id.etadminid);
+        etpass = findViewById(R.id.etpass);
+        etnum = findViewById(R.id.etnum);
 
         sp = getSharedPreferences("login",MODE_PRIVATE);
         if(sp.getBoolean("logged",false)){
             goToMainActivity();
         }
 
-        btnlogin = (Button)findViewById(R.id.btnloginconcession);
+        btnlogin = findViewById(R.id.btnloginconcession);
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +69,7 @@ public class AdminConcessionActivity extends AppCompatActivity {
                                 Intent myintent = new Intent(AdminConcessionActivity.this, AdminAuthActivity2.class);
                                 Bundle bundle = new Bundle();
                                 bundle.putString("phone",dbphone);
+                                bundle.putString("Admin","AdminConcessionActivity");
                                 myintent.putExtras(bundle);
                                 startActivity(myintent);
                             }
@@ -91,7 +92,7 @@ public class AdminConcessionActivity extends AppCompatActivity {
             }
         });
 
-        btnsignup = (Button)findViewById(R.id.btnsignup);
+        btnsignup = findViewById(R.id.btnsignup);
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,19 +1,12 @@
 package com.example.rishivijaygajelli.pillaiadmissionconcession;
 
 import android.app.AlertDialog;
-
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,7 +35,7 @@ public class AdminDatabaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.activity_admin_database_fragment, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.stu_recycle_view);
+        recyclerView = view.findViewById(R.id.stu_recycle_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
@@ -57,10 +50,10 @@ public class AdminDatabaseFragment extends Fragment {
 
             @Override
             public void onLongClick(View view, int position) {
-                final String AdmNo = ((TextView)recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.rv_adm)).getText().toString();
-                final String Name = ((TextView)recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.rv_name)).getText().toString();
-                final String roll = ((TextView)recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.rv_roll)).getText().toString();
-                String Stream = ((TextView)recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.rv_stream)).getText().toString();
+                final String AdmNo = ((TextView)recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.rv_stu_id)).getText().toString();
+                final String Name = ((TextView)recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.rv_new_name)).getText().toString();
+                final String roll = ((TextView)recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.rv_phone)).getText().toString();
+                String Stream = ((TextView)recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.rv_email)).getText().toString();
                 String Sem = ((TextView)recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.rv_sem)).getText().toString();
 
                 final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

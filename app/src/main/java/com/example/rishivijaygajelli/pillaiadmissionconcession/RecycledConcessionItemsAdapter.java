@@ -24,12 +24,12 @@ public class RecycledConcessionItemsAdapter extends RecyclerView.Adapter<Recycle
         {
             super(v);
             layout = v;
-            rv_pass_code = (TextView)v.findViewById(R.id.rv_pass_code);
-            rv_adm = (TextView)v.findViewById(R.id.rv_adm);
-            rv_roll = (TextView)v.findViewById(R.id.rv_roll);
-            rv_station_name = (TextView)v.findViewById(R.id.rv_station_name);
-            rv_pass_type = (TextView)v.findViewById(R.id.rv_pass_type);
-            rv_pass_period = (TextView)v.findViewById(R.id.rv_pass_period);
+            rv_pass_code = v.findViewById(R.id.rv_pass_code);
+            rv_adm = v.findViewById(R.id.rv_stu_id);
+            rv_roll = v.findViewById(R.id.rv_phone);
+            rv_station_name = v.findViewById(R.id.rv_station_name);
+            rv_pass_type = v.findViewById(R.id.rv_pass_type);
+            rv_pass_period = v.findViewById(R.id.rv_pass_period);
 
             v.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override

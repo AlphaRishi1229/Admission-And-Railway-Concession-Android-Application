@@ -1,15 +1,12 @@
 package com.example.rishivijaygajelli.pillaiadmissionconcession;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -25,11 +22,11 @@ public class RecycledItemsAdapter extends RecyclerView.Adapter<RecycledItemsAdap
         public ViewHolder(View v) {
             super(v);
             layout = v;
-            rv_adm = (TextView) v.findViewById(R.id.rv_adm);
-            rv_name = (TextView) v.findViewById(R.id.rv_name);
-            rv_roll = (TextView) v.findViewById(R.id.rv_roll);
-            rv_stream = (TextView) v.findViewById(R.id.rv_stream);
-            rv_sem = (TextView) v.findViewById(R.id.rv_sem);
+            rv_adm = v.findViewById(R.id.rv_stu_id);
+            rv_name = v.findViewById(R.id.rv_new_name);
+            rv_roll = v.findViewById(R.id.rv_phone);
+            rv_stream = v.findViewById(R.id.rv_email);
+            rv_sem = v.findViewById(R.id.rv_sem);
 
             v.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override

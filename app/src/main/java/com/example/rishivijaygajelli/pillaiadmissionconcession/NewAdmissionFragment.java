@@ -1,9 +1,7 @@
 package com.example.rishivijaygajelli.pillaiadmissionconcession;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,8 +24,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
-
 
 public class NewAdmissionFragment extends Fragment {
 TextInputEditText admno, nameofstudent,rollno;
@@ -42,13 +38,13 @@ Button btnadd;
         final View view = inflater.inflate(R.layout.fragment_new_admission, container, false);
 
 //        String AdmNum = getArguments().getString("AdmNo");
-        admno = (TextInputEditText)view.findViewById(R.id.admno);
-        nameofstudent = (TextInputEditText)view.findViewById(R.id.nameofstudent);
-        rollno = (TextInputEditText)view.findViewById(R.id.rollno);
+        admno = view.findViewById(R.id.admno);
+        nameofstudent = view.findViewById(R.id.nameofstudent);
+        rollno = view.findViewById(R.id.rollno);
 
       //  admno.setText(AdmNum);
-        spinner_sem = (Spinner)view.findViewById(R.id.spinner_sem_new);
-        spinner_stream = (Spinner)view.findViewById(R.id.spinner_stream_new);
+        spinner_sem = view.findViewById(R.id.spinner_sem);
+        spinner_stream = view.findViewById(R.id.spinner_stream);
         List<String> stream_spin = new ArrayList<String>();
         stream_spin.add("Bsc Computer Science");
         stream_spin.add("B.M.M");
@@ -89,7 +85,7 @@ Button btnadd;
 
              }
          });
-         btnadd = (Button)view.findViewById(R.id.btnadd);
+         btnadd = view.findViewById(R.id.btnadd);
          btnadd.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
