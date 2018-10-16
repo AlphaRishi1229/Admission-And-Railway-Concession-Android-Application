@@ -6,13 +6,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class RecycledItemsAdapter extends RecyclerView.Adapter<RecycledItemsAdapter.ViewHolder> {
+public class RecycledItemsAdapter extends RecyclerView.Adapter<RecycledItemsAdapter.ViewHolder> implements Filterable{
 
     private List<RecycledItems> values;
+    private List<RecycledItems> values_full;
     public Context context;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -38,11 +42,39 @@ public class RecycledItemsAdapter extends RecyclerView.Adapter<RecycledItemsAdap
             });
         }
     }
+    private Filter valuesFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<RecycledItems> filteredList = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(values_full);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
 
-    public RecycledItemsAdapter(List<RecycledItems> myDataset, Context context) {
-        values = myDataset;
-        this.context = context;
-    }
+                for (RecycledItems item : values_full) {
+                    if (item.getAdmNo().toLowerCase().contains(filterPattern)
+                            ||item.getName().toLowerCase().contains(filterPattern)
+                            || item.getRoll().toLowerCase().contains(filterPattern)
+                            || item.getStream().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+         //   results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            values.clear();
+            values.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
 
     @Override
     public RecycledItemsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -67,4 +99,18 @@ public class RecycledItemsAdapter extends RecyclerView.Adapter<RecycledItemsAdap
     public int getItemCount() {
         return values.size();
     }
+
+    public RecycledItemsAdapter(List<RecycledItems> myDataset, Context context) {
+        values = myDataset;
+        this.context = context;
+        values_full = new ArrayList<>(myDataset);
+
+    }
+
+    @Override
+    public Filter getFilter() {
+        return valuesFilter;
+    }
 }
+
+

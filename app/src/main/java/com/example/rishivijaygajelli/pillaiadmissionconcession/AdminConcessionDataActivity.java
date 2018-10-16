@@ -5,12 +5,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.sql.CallableStatement;
@@ -27,6 +28,7 @@ public class AdminConcessionDataActivity extends AppCompatActivity {
     String ConnectionResult;
     Boolean isSuccess;
 
+    SearchView searchView;
     private ArrayList<ConcessionRecycledItems> itemsArrayList;
     private RecycledConcessionItemsAdapter myAdapter;
     private RecyclerView recyclerView;
@@ -38,7 +40,7 @@ public class AdminConcessionDataActivity extends AppCompatActivity {
 
         sp = getSharedPreferences("login",MODE_PRIVATE);
 
-        recyclerView = (RecyclerView) findViewById(R.id.concession_recycle_view);
+        recyclerView = findViewById(R.id.concession_recycle_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -47,7 +49,7 @@ public class AdminConcessionDataActivity extends AppCompatActivity {
         myAdapter = new RecycledConcessionItemsAdapter(itemsArrayList, getApplicationContext());
         recyclerView.setAdapter(myAdapter);
 
-        btnsignout = (Button)findViewById(R.id.btnsignout);
+        btnsignout = findViewById(R.id.btnsignout);
         btnsignout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,13 +58,28 @@ public class AdminConcessionDataActivity extends AppCompatActivity {
             }
         });
 
-        btn_download_all = (Button)findViewById(R.id.btn_download_all);
+        btn_download_all = findViewById(R.id.btn_download_all);
         btn_download_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Uri uri = Uri.parse("http://104.211.167.104/"); // missing 'http://' will cause crashed
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
+            }
+        });
+
+        searchView = findViewById(R.id.search_view_concession);
+        searchView.setQueryHint("Enter value to be searched to be searched");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                myAdapter.getFilter().filter(newText);
+                return false;
             }
         });
 
@@ -110,8 +127,16 @@ public class AdminConcessionDataActivity extends AppCompatActivity {
                         String station_name = rs.getString("current_station_name");
                         String pass_type = rs.getString("current_pass_type");
                         String pass_period = rs.getString("current_ticket_period");
+                        String last_vch_no = rs.getString("last_vch_no");
+                        String last_ticket_no = rs.getString("last_ticket_no");
+                        String last_station_name = rs.getString("last_station_name");
+                        String last_ticket_period = rs.getString("last_ticket_period");
+                        String last_issue_date = rs.getString("last_issue_date");
+                        String last_pass_type = rs.getString("last_pass_type");
 
-                        itemsArrayList.add(new ConcessionRecycledItems(pass_code,Admno,rollno,station_name,pass_type,pass_period));
+
+                        itemsArrayList.add(new ConcessionRecycledItems(pass_code,Admno,rollno,station_name,pass_type,pass_period
+                                ,last_vch_no,last_ticket_no,last_station_name,last_ticket_period,last_issue_date,last_pass_type));
                     }
                     ConnectionResult = " successful";
                     isSuccess = true;

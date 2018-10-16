@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.sql.CallableStatement;
@@ -26,6 +27,7 @@ public class AdmissionFormsFragment extends Fragment {
     private RecycledNewStudentsItemsAdapter myAdapter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
+    SearchView searchView;
 
     @Nullable
     @Override
@@ -38,6 +40,21 @@ public class AdmissionFormsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         itemsArrayList = new ArrayList<RecycledNewStudentItems>();
+
+        searchView = view.findViewById(R.id.search_view_newstu);
+        searchView.setQueryHint("Enter value to be searched");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                myAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
 
         NewStudentSync ns = new NewStudentSync();
         ns.execute();

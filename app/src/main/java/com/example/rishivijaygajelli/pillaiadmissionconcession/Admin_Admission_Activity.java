@@ -57,8 +57,6 @@ public class Admin_Admission_Activity extends AppCompatActivity {
                            if(password.equals(dbpwd) && phone.equals(dbphone))
                             {
                                 goToMainActivity();
-                                sp.edit().putBoolean("logged",true).apply();
-
                                 Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
                                 Intent myintent = new Intent(Admin_Admission_Activity.this, AdminAuthActivity.class);
                                 Bundle bundle = new Bundle();

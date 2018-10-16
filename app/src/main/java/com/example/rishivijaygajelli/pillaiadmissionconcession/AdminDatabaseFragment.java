@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class AdminDatabaseFragment extends Fragment {
     Connection connect;
     String ConnectionResult;
     Boolean isSuccess;
+    SearchView searchView;
 
     @Nullable
     @Override
@@ -95,6 +97,20 @@ public class AdminDatabaseFragment extends Fragment {
                 builder.show();
             }
         }));
+        searchView = view.findViewById(R.id.search_view);
+        searchView.setQueryHint("Enter value to be searched to be searched");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                myAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
         SyncData studentData = new SyncData();
         studentData.execute("");
         return view;

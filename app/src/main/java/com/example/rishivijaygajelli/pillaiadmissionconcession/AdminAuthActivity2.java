@@ -3,6 +3,7 @@ package com.example.rishivijaygajelli.pillaiadmissionconcession;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -40,12 +41,15 @@ public class AdminAuthActivity2 extends AppCompatActivity {
     Boolean isSuccess = false;
     String verificationCode;
 
+    SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_auth2);
         auth = FirebaseAuth.getInstance();
         etotp = findViewById(R.id.etotp);
+
+        sp = getSharedPreferences("login",MODE_PRIVATE);
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
@@ -124,6 +128,7 @@ public class AdminAuthActivity2 extends AppCompatActivity {
                             Bundle bundle = getIntent().getExtras();
                             if (bundle.containsKey("Admin"))
                             {
+                                sp.edit().putBoolean("logged",true).apply();
                                 Toast.makeText(getApplicationContext(),"Admin Logged In Successfully",Toast.LENGTH_LONG).show();
                                 Intent i = new Intent(AdminAuthActivity2.this, AdminConcessionDataActivity.class);
                                 startActivity(i);
@@ -282,6 +287,11 @@ public class AdminAuthActivity2 extends AppCompatActivity {
             }
             return code;
         }
+    }
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(AdminAuthActivity2.this, MainScreenActivity.class);
+        startActivity(i);
     }
 }
 

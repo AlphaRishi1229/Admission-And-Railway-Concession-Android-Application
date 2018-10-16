@@ -6,19 +6,51 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class RecycledNewStudentsItemsAdapter extends RecyclerView.Adapter<RecycledNewStudentsItemsAdapter.ViewHolder> {
+public class RecycledNewStudentsItemsAdapter extends RecyclerView.Adapter<RecycledNewStudentsItemsAdapter.ViewHolder> implements Filterable{
 
     public Context context;
     private List<RecycledNewStudentItems> values;
+    private List<RecycledNewStudentItems> values_full;
+    private Filter valuesFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<RecycledNewStudentItems> filteredList = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(values_full);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
 
-    public RecycledNewStudentsItemsAdapter(List<RecycledNewStudentItems> myDataset, Context context) {
-        values = myDataset;
-        this.context = context;
-    }
+                for (RecycledNewStudentItems item : values_full) {
+                    if (item.getStreamName().toLowerCase().contains(filterPattern)
+                            || item.getStreamYear().toLowerCase().contains(filterPattern)
+                            || item.getStudentID().toLowerCase().contains(filterPattern)
+                            || item.getNewName().toLowerCase().contains(filterPattern)
+                            || item.getCaste().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            values.clear();
+            values.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
 
     @Override
     public RecycledNewStudentsItemsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -51,6 +83,17 @@ public class RecycledNewStudentsItemsAdapter extends RecyclerView.Adapter<Recycl
         return values.size();
     }
 
+    public RecycledNewStudentsItemsAdapter(List<RecycledNewStudentItems> myDataset, Context context) {
+        values = myDataset;
+        this.context = context;
+        values_full = new ArrayList<>(myDataset);
+    }
+
+    @Override
+    public Filter getFilter() {
+        return valuesFilter;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView rv_stu_id, rv_new_name, rv_phone, rv_email, rv_dob, rv_caste, rv_tenth, rv_twelth, rv_applied_stream, rv_stream_year;
         public View layout;
@@ -80,7 +123,7 @@ public class RecycledNewStudentsItemsAdapter extends RecyclerView.Adapter<Recycl
             });
 
         }
-
     }
+
 }
 

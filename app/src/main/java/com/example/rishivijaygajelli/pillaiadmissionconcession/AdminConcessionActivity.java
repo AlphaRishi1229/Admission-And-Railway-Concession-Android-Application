@@ -63,7 +63,7 @@ public class AdminConcessionActivity extends AppCompatActivity {
                             if(password.equals(dbpwd) && phone.equals(dbphone))
                             {
                                 goToMainActivity();
-                                sp.edit().putBoolean("logged",true).apply();
+
 
                                 Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
                                 Intent myintent = new Intent(AdminConcessionActivity.this, AdminAuthActivity2.class);
