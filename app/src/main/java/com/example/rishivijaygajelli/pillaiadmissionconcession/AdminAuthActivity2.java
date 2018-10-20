@@ -63,9 +63,11 @@ public class AdminAuthActivity2 extends AppCompatActivity {
                     // Invalid request
                     Log.d(TAG, "Invalid credential: "
                             + e.getLocalizedMessage());
+                    Toast.makeText(getApplicationContext(),"Invalid Credentials"+e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
                 } else if (e instanceof FirebaseTooManyRequestsException) {
                     // SMS quota exceeded
                     Log.d(TAG, "SMS Quota exceeded.");
+                    Toast.makeText(getApplicationContext(),"SMS Quota exceeded",Toast.LENGTH_LONG).show();
                 }
                 Toast.makeText(getApplicationContext(),TAG,Toast.LENGTH_LONG).show();
 

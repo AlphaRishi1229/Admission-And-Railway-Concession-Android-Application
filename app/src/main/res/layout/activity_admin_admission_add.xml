@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:text="Admin Sign-Up Portal" />
+            android:text="Admin Admission Portal" />
 
         <Button
             android:id="@+id/btnaddadm"

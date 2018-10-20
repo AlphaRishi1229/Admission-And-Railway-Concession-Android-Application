@@ -3,28 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightOrange">
-
-    <TextView
-        android:id="@+id/splashtext"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="154dp"
-        android:background="@color/lightOrange"
-        android:text="Pillai College Of Arts, Commerce And Science"
-        android:textAllCaps="true"
-        android:textColor="@color/red"
-        android:textSize="30sp"
-        android:textStyle="bold|italic" />
+    android:background="@color/fui_bgGoogle">
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="204dp"
         android:layout_height="189dp"
-        android:layout_above="@+id/splashtext"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:src="@mipmap/pillai" />
+
+    <View
+        android:id="@+id/divider16"
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="33dp"
+        android:background="@color/darkOrange" />
+
+    <View
+        android:id="@+id/divider17"
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="35dp"
+        android:background="@color/darkOrange" />
 
 </RelativeLayout>

@@ -92,7 +92,7 @@ Button btnadd;
                  String AdmissionNo = admno.getText().toString();
                  String StudentName = nameofstudent.getText().toString();
                  String RollNo = rollno.getText().toString();
-               String StreamNo = Stream_ID;
+                 String StreamNo = Stream_ID;
 
                if(AdmissionNo.equals("")||StudentName.equals("")||RollNo.equals("")||StreamNo.equals(""))
                {

@@ -49,7 +49,7 @@ RelativeLayout rel1;
                 }
                 else if(!isChecked)
                 {
-                    rel1.setBackgroundColor(getResources().getColor(R.color.grey));
+                    rel1.setBackgroundColor(getResources().getColor(R.color.cardview_light_background));
                 }
             }
         });
